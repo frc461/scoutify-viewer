@@ -1,0 +1,25 @@
+{
+	/* basic app info stuff */
+	"name": "Scoutify Viewer",
+	"description": "A viewer which reads JSON files from the scoutify-hub application; helps to automate the FIRST competition scouting process",
+	"version": "2013-09-dev",
+	"homepage": "https://github.com/team461WBI/scoutify-viewer",
+	
+	/* stuff for reporting bugs */
+	"bugs": {
+		"url": "https://github.com/team461WBI/scoutify-viewer/issues",
+		"email": "website@boilerinvasion.org"
+	},
+	
+	/* node-webkit-y stuff */
+	"main": "index.html",
+	"window": {
+		"width": 1024,
+		"height": 768,
+		"position": "mouse",
+		"min_width": 1024,
+		"min_height": 768,
+		"frame": false,
+		"toolbar": true
+	}
+}
