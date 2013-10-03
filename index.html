@@ -1,37 +1,37 @@
 <html>
-  <head>
-    <script src="js/jquery-2.0.3.min.js"></script>
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/scoutify.css" rel="stylesheet">
-    <script src="js/bootstrap.min.js"></script>
-  </head>
+	<head>
+		<script src="js/jquery-2.0.3.min.js"></script>
+		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="css/scoutify.css" rel="stylesheet">
+		<script src="js/bootstrap.min.js"></script>
+	</head>
 
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">SCOUTIFY - Viewer</a>
-        <div class="nav-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    <div class="container">
-      <div class="starter-template">
-        <h1>Scoutify Viewer</h1>
-      </div>
-      <div class="panel-group" id="accordion">
-      </div>
-      <script>
-        function new_team(team_number) {
-           $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'> Team " + team_number +"</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body'>" + team_number+"</div></div>" );
-        }
-	new_team("461");
-      </script>
-  </body>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">SCOUTIFY - Viewer</a>
+				<div class="nav-collapse collapse">
+					<ul class="nav navbar-nav">
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+		<div class="container">
+			<div class="starter-template">
+				<h1>Scoutify Viewer</h1>
+			</div>
+			<div class="panel-group" id="accordion">
+			</div>
+			<script>
+				function new_team(team_number) {
+					$("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'> Team " + team_number +"</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body'>" + team_number+"</div></div>");
+				}
+				new_team("461");
+			</script>
+	</body>
 </html>
