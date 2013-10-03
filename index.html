@@ -41,9 +41,10 @@
           </div>
       </div>
       <script>
-        function new_team(team_number, disks_shot[], disks_scored[], which_goal[], teleop_disks_shot[], teleop_which_goal[], tier_climbed_to[], notes[]) {
-          panel-group.add("");
+        function new_team(team_number) {
+           $("#accordion").html("<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'> Team " + team_number +"</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse colapse in'> <div class='panel-body>" + team_number+"</div></div>" );
         }
+	new_team("461");
       </script>
   </body>
 </html>
