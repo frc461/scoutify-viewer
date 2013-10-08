@@ -28,4 +28,10 @@
 			<div class="panel-group" id="accordion">
 			</div>
 	</body>
+	<script>
+        function new_team(team_number) {
+            $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'> Team " + team_number +"</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body'>" + team_number+"</div></div>");
+        }
+        new_team("461");
+	</script>
 </html>
