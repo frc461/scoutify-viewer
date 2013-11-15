@@ -1,5 +1,4 @@
 function parse_file_new(data) {
-    alert(data);
     dragons = eval(data);
    $.map(dragons, function(dragon,i) {
        new_team(dragon.number, dragon.matches, dragon.name, dragon.value);
@@ -70,6 +69,5 @@ function handleFileSelect(evt) {
 	  parse_file_new(this.result);
 	}
 	reader.readAsText(file);
-        alert(file);
     }
 }
