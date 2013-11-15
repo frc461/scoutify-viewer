@@ -10,3 +10,18 @@ a.navbar-brand {
   background-color: #ebe314;
   border-color: #dbd304;
 }
+.drag-n-drop {
+  width: 100%;
+  text-align: center;
+  padding: 25px;
+  border: 2px dashed grey;
+  -webkit-transition: all 500ms linear;
+}
+.dnd {
+  width: 100%;
+  text-align: center;
+}
+.drag-n-drop:hover {
+  color: #2DD700;
+  border-color: #2DD700;
+}
