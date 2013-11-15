@@ -31,7 +31,6 @@ function dragover(e) {
     e.stopPropagation();  
     e.preventDefault();  
     }  
-var reader;
 
 function abortRead() {
     reader.abort();
@@ -61,15 +60,16 @@ function handleFileSelect(evt) {
     var output;
     for(var i = 0, numFiles = files.length; i < numFiles; i++){
 	var file = files[i];
+	var reader;
 	output = file;
 	reader = new FileReader();
 	reader.onerror = errorHandler;
 	reader.onabort = function(e) {
 	    };
 	reader.onload = function(e) {
-	parse_file_new(reader.readAsText(file));
-	alert(reader.reasAsText(file));
-    parse_file_new(output);
-    }
+	  parse_file_new(this.result);
+	}
+	reader.readAsText(file);
+        alert(file);
     }
 }
