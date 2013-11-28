@@ -5,7 +5,7 @@ function parse_file_new(data) {
    });
 }
 function new_team(team_number, matches, name, rank) {
-    $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'>"+ rank +". Team " + team_number +": " + name + "</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><table class='table table-striped'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite"+ team_number +"0'><td>" + team_number+"</td></tr></tbody></table></div></div>" );
+    $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'>"+ rank +". Team " + team_number +": " + name + "</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite"+ team_number +"0'><td>" + team_number+"</td></tr></tbody></table></div></div>" );
     $.map(matches, function(match,match_number){
       if(match_number == 0) {
 	//if i == 0 for if first
