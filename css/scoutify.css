@@ -80,10 +80,7 @@ a.navbar-brand:hover {
 	color: #333;
 }
 
-.inputThings {
-	margin-top: 4px;
-	margin-bottom: 4opx;
-}
+.inputThings {}
 
 .form-control {
 	background-color: #333;
@@ -127,6 +124,7 @@ th {
 
 td {
     color: #ffffff;
+	border-top: none !important;
 }
 
 h1 {
@@ -136,4 +134,23 @@ h1 {
 .table {
     font-size: 20px;
     line-height: normal;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+tr {
+	border-top: thin solid #666;
+	border-bottom: thin solid #666;
+}
+
+hr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	border-color: #666;
+}
+
+.writefilebutton {
+	font-size: 150%;
 }
