@@ -5,13 +5,13 @@ function parse_file_new(data) {
    });
 }
 function new_team(team_number, matches, name, rank) {
-    $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'>"+ rank +". Team " + team_number +": " + name + "</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite"+ team_number +"0'><td>" + team_number+"</td></tr></tbody></table></div></div>" );
+    $("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a class='accordion-toggle' data-toggle='collapse' data-parent='#accordion'href='#collapse" + team_number + "'>"+ rank +". Team " + team_number +": " + name + "</a></h4></div><div id='collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><span><h1 class=\"team_num\">"+ team_number +"</h1><div id='graph"+ team_number+"' class='graph'></div></span><br><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite"+ team_number +"0'><td>" + team_number+"</td></tr></tbody></table></div></div>" );
     $.map(matches, function(match,match_number){
       if(match_number == 0) {
 	//if i == 0 for if first
 	$.map(match, function(header,key) {
 	  //dritte + vierte
-          $("#erste" + team_number ).append("<th>" + key +"</th>");
+          $("#erste" + team_number ).append("<th " + ((key == "notes") ? "style=\"width: 250px;\"" : "") + ">" + key +"</th>");
 	  $("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
 	});
       }
@@ -27,19 +27,19 @@ function new_team(team_number, matches, name, rank) {
 
 $(function() {
 var bg = document.getElementById("fml");
-bg.addEventListener("dragenter", dragenter, false);  
-bg.addEventListener("dragover", dragover, false);  
+bg.addEventListener("dragenter", dragenter, false);
+bg.addEventListener("dragover", dragover, false);
 bg.addEventListener("drop", handleFileSelect, false);
 });
-function dragenter(e) {  
-    e.stopPropagation();  
-    e.preventDefault();  
-    }  
-  
-function dragover(e) {  
-    e.stopPropagation();  
-    e.preventDefault();  
-    }  
+function dragenter(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    }
+
+function dragover(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    }
 
 function abortRead() {
     reader.abort();

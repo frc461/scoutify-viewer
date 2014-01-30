@@ -30,14 +30,14 @@ a.navbar-brand:hover {
 ::-webkit-scrollbar {
     width: 12px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background: #333;
 }
- 
+
 ::-webkit-scrollbar-thumb {
     background-color: #fff200;
-    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5); 
+    -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
 }
 .credits {
   font-size: 20px;
@@ -53,7 +53,7 @@ a.navbar-brand:hover {
 }
 .sam {
   color: grey;
-  text-align:center;  
+  text-align:center;
 }
 /*from client*/
 .btn-primary {
@@ -102,4 +102,18 @@ color: #ffffff;
 }
 td {
     color: #ffffff;
+}
+h1 {
+	color: #fff;
+/*	width: 100;*/
+}
+.team_num {
+	float:left;
+	width: 400px;
+}
+.graph {
+	float:right;
+	background-color: #444;
+	height: 150px;
+	width:  300px;
 }
