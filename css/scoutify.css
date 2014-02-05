@@ -126,17 +126,25 @@ td {
 }
 .team_num {
 	float:left;
-	width: 400px;
+	width: 200px;
 }
-.graph {
+.graph_div {
+	padding: 8px;
 	float:right;
-	background-color: #444;
-	height: 150px;
-	width:  300px;
+	background-color: #fff;
+	height: 216px;
+	width:  416px;
+	margin-bottom: 16px;
+	border: 2px solid #fff200;
+	border-radius: 2px;
+}
+.graph{
+	width: 400px;
+	height: 200px;
 }
 
 h1 {
-    color: gray;
+    color: #fff;
 }
 
 .table {
