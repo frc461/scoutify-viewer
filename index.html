@@ -6,7 +6,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.jqplot.min.js"></script>
     <script src="js/scoutify.js"></script>
-    
+
   </head>
 
   <body>
@@ -18,8 +18,10 @@
                 <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#">SCOUTIFY - Viewer</a>
-        <div class="nav-collapse collapse">
+		<div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+					<li><a onClick="expand_all()" href="#" class="active">Toggle All Close/Open (Inverses Value)</a></li>
+					<li><a onClick="expand_and_draw_graphs()" href="#" class="active">Toggle &amp; Draw Graphs</a></li>
                 </ul>
         </div><!--/.nav-collapse -->
       </div>
