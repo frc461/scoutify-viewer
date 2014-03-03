@@ -2,7 +2,7 @@ function parse_file_new(data) {
 	dragons = eval(data);
 
 	$.map(dragons, function(dragon, i) {
-		new_team(dragon.number, dragon.matches, dragon.name, dragon.value);
+		new_team(dragon.number, dragon.matches, dragon.name, dragon.placing);
 	});
 }
 
@@ -48,7 +48,7 @@ function new_team(team_number, matches, name, rank) {
 				// dritte + vierte
 				$("#erste" + team_number ).append("<th " + ((key == "notes") ? "style=\"width: 250px;\"" : "") + ">" + key + "</th>");
 				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
-				if (key == "teleop_shots") {
+				if (key == "score") {
 					graph_array[graph_count] = header;
 					graph_count++;
 				}
@@ -57,7 +57,7 @@ function new_team(team_number, matches, name, rank) {
 			$("#dritte" + team_number).append("<tr id='zweite"+ team_number + match_number + "'><td>" + team_number+ "</td></tr>");
 			$.map(match, function(header,key) {
 				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
-				if (key == "teleop_shots") {
+				if (key == "score") {
 					graph_array[graph_count] = header;
 					graph_count++;
 				}
