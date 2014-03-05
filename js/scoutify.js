@@ -36,7 +36,63 @@ function new_team(team_number, value, matches, name, rank) {
 	var graph_score_count = 0;
 	var graph_value_count = 0;
 
-	$("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a id=\"toggley-thing" + team_number + "\" class='accordion-toggle' data-toggle='collapse' data-parent='#accordion' href='#my-collapse" + team_number + "'>" + rank + ". Team " + team_number + ": " + name + "(value: " + value + ")" + "</a></h4></div><div id='my-collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><span><h1 class=\"team_num\">" + team_number + "</h1><div class=\"graph_div\"><div id='graph" + team_number+ "' class='graph'></div></div></span><br><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite" + team_number + "0'><td>" + team_number + "</td></tr></tbody></table></div></div>");
+	var string = "<p></p>";
+	string += "<div class='panel panel-default'>";
+	string += "<div class='panel-heading'><h4 class='panel-title'><a id=\"toggley-thing" + team_number + "\" class='accordion-toggle' data-toggle='collapse' data-parent='#accordion' href='#my-collapse" + team_number + "'>" + rank + ". Team " + team_number + ": " + name + "(value: " + value + ")" + "</a></h4></div>"
+	string += "<div id='my-collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'>"
+	string += "<span><h1 class=\"team_num\">" + team_number + "</h1><div class=\"graph_div\"><div id='graph" + team_number+ "' class='graph'></div></div></span><br>"
+//old	string += "<table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite" + team_number + "-0'><td>" + team_number + "</td></tr></tbody></table>"
+	string += "<table class='table'>"
+	string += "<thead>"
+	string +=   "<tr id='erste" + team_number + "'>"
+	string +=     "<th>Match</th>"
+	string +=   "</tr>"
+	string += "</thead>"
+	string += "<tbody id='dritte" + team_number + "'>"
+	string +=   "<tr id='mobility" + team_number + "'>"
+	string +=     "<td>Mobility</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='hot" + team_number + "'>"
+	string +=     "<td>Hot?</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='auto_shot" + team_number + "'>"
+	string +=     "<td>Auton Shot</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='high" + team_number + "'>"
+	string +=     "<td>High</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='low" + team_number + "'>"
+	string +=     "<td>Low</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='pass" + team_number + "'>"
+	string +=     "<td>Passes</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='recieve" + team_number + "'>"
+	string +=     "<td>Recieve</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='truss" + team_number + "'>"
+	string +=     "<td>Truss</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='catch" + team_number + "'>"
+	string +=     "<td>Catch</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='block" + team_number + "'>"
+	string +=     "<td>Block</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='value" + team_number + "'>"
+	string +=     "<td>Value</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='score" + team_number + "'>"
+	string +=     "<td>Score</td>"
+	string +=   "</tr>"
+	string +=   "<tr id='notes" + team_number + "'>"
+	string +=     "<td>notes</td>"
+	string +=   "</tr>"
+	string += "</tbody>"
+	string += "</table>"
+	string += "</div></div>"
+
+	$("#accordion").append(string);
 	// alert("#my-collapse" + team_number);
 
 	$("#graph" + team_number).click(function() {
@@ -44,36 +100,29 @@ function new_team(team_number, value, matches, name, rank) {
 	});
 
 	$.map(matches, function(match,match_number){
-		if(match_number == 0) {
-			// if i == 0 for if first
-			$.map(match, function(header,key) {
-				// dritte + vierte
-				$("#erste" + team_number ).append("<th " + ((key == "notes") ? "style=\"width: 250px;\"" : "") + ">" + key + "</th>");
-				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
-				if (key == "value") {
-					graph_value_array[graph_score_count] = header;
-					graph_score_count++;
-				}
-				if (key == "score") {
-					graph_score_array[graph_value_count] = header;
-					graph_value_count++;
-				}
-			});
-		} else {
-			$("#dritte" + team_number).append("<tr id='zweite"+ team_number + match_number + "'><td>" + team_number+ "</td></tr>");
-			$.map(match, function(header,key) {
-				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
-				if (key == "value") {
-					graph_value_array[graph_score_count] = header;
-					graph_score_count++;
-				}
-				if (key == "score") {
-					graph_score_array[graph_value_count] = header;
-					graph_value_count++;
-				}
 
-			});
-		}
+		$("#erste" + team_number).append("<th>" + match.round + "</th>");
+
+		$("#mobility" + team_number).append("<td>" + (match.auto_mobility ? "yes" : "no") + "</td>");
+		$("#hot" + team_number).append("<td>" + (match.auto_hot ? "yes" : "no") + "</td>");
+		var shot;
+		if(match.auto_shot == 0) shot = "Fail";
+		else if(match.auto_shot == 1) shot = "High";
+		else if(match.auto_shot == 2) shot = "Low";
+		$("#auto_shot" + team_number).append("<td>" + shot + "</td>");
+		$("#high" + team_number).append("<td>" + match.high_goals_scored + " / " + match.high_goals_attempted + "</td>");
+		$("#low" + team_number).append("<td>" + match.low_goals_scored + " / " + match.low_goals_attempted + "</td>");
+		$("#pass" + team_number).append("<td>" + match.passes_scored + " / " + match.passes_attempted + "</td>");
+		$("#recieve" + team_number).append("<td>" + match.receives_scored + " / " + match.receives_attempted + "</td>");
+		$("#truss" + team_number).append("<td>" + match.trusses_scored + " / " + match.trusses_attempted + "</td>");
+		$("#catch" + team_number).append("<td>" + match.catches_scored + " / " + match.catches_attempted + "</td>");
+		$("#block" + team_number).append("<td>" + match.blocks_scored + " / " + match.blocks_attempted + "</td>");
+		$("#value" + team_number).append("<td>" + match.value + "</td>");
+		$("#score" + team_number).append("<td>" + match.score + "</td>");
+		$("#notes" + team_number).append("<td>" + match.notes + "</td>");
+
+		graph_value_array.push(match.value);
+		graph_score_array.push(match.score);
 	});
 }
 
