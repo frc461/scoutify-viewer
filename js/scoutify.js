@@ -40,7 +40,6 @@ function new_team(team_number, matches, name, rank) {
 	// alert("#my-collapse" + team_number);
 
 	$("#graph" + team_number).click(function() {
-		alert([graph_score_array, graph_value_array]);
 		$.jqplot('graph' + team_number, [graph_score_array, graph_value_array], { title: "Points Graph", axes: {xaxis: {min: 0}, yaxis: {min:0}}});
 	});
 
