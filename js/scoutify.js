@@ -2,7 +2,7 @@ function parse_file_new(data) {
 	dragons = eval(data);
 
 	$.map(dragons, function(dragon, i) {
-		new_team(dragon.number, dragon.matches, dragon.name, dragon.placing);
+		new_team(dragon.number, dragon.value, dragon.matches, dragon.name, dragon.placing);
 	});
 }
 
@@ -30,13 +30,13 @@ function expand_and_draw_graphs() {
 	}));
 }
 
-function new_team(team_number, matches, name, rank) {
+function new_team(team_number, value, matches, name, rank) {
 	var graph_score_array = [];
 	var graph_value_array = [];
 	var graph_score_count = 0;
 	var graph_value_count = 0;
 
-	$("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a id=\"toggley-thing" + team_number + "\" class='accordion-toggle' data-toggle='collapse' data-parent='#accordion' href='#my-collapse" + team_number + "'>" + rank + ". Team " + team_number + ": " + name + "</a></h4></div><div id='my-collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><span><h1 class=\"team_num\">" + team_number + "</h1><div class=\"graph_div\"><div id='graph" + team_number+ "' class='graph'></div></div></span><br><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite" + team_number + "0'><td>" + team_number + "</td></tr></tbody></table></div></div>");
+	$("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a id=\"toggley-thing" + team_number + "\" class='accordion-toggle' data-toggle='collapse' data-parent='#accordion' href='#my-collapse" + team_number + "'>" + rank + ". Team " + team_number + ": " + name + "(value: " + value + ")" + "</a></h4></div><div id='my-collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><span><h1 class=\"team_num\">" + team_number + "</h1><div class=\"graph_div\"><div id='graph" + team_number+ "' class='graph'></div></div></span><br><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite" + team_number + "0'><td>" + team_number + "</td></tr></tbody></table></div></div>");
 	// alert("#my-collapse" + team_number);
 
 	$("#graph" + team_number).click(function() {
