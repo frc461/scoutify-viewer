@@ -31,14 +31,17 @@ function expand_and_draw_graphs() {
 }
 
 function new_team(team_number, matches, name, rank) {
-	var graph_array = [];
-	var graph_count = 0;
+	var graph_score_array = [];
+	var graph_value_array = [];
+	var graph_score_count = 0;
+	var graph_value_count = 0;
 
 	$("#accordion").append("<p></p><div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a id=\"toggley-thing" + team_number + "\" class='accordion-toggle' data-toggle='collapse' data-parent='#accordion' href='#my-collapse" + team_number + "'>" + rank + ". Team " + team_number + ": " + name + "</a></h4></div><div id='my-collapse" + team_number + "'class='panel-collapse collapse'> <div class='panel-body table-body' style='overflow:auto;'><span><h1 class=\"team_num\">" + team_number + "</h1><div class=\"graph_div\"><div id='graph" + team_number+ "' class='graph'></div></div></span><br><table class='table'><thead><tr id='erste" + team_number + "'><th>Team Number</th></tr></thead><tbody id='dritte" + team_number + "'><tr id='zweite" + team_number + "0'><td>" + team_number + "</td></tr></tbody></table></div></div>");
 	// alert("#my-collapse" + team_number);
 
 	$("#graph" + team_number).click(function() {
-		$.jqplot('graph' + team_number, [graph_array], { title: "Points Graph", axes: {xaxis: {min: 0}, yaxis: {min:0}}});
+		alert([graph_score_array, graph_value_array]);
+		$.jqplot('graph' + team_number, [graph_score_array, graph_value_array], { title: "Points Graph", axes: {xaxis: {min: 0}, yaxis: {min:0}}});
 	});
 
 	$.map(matches, function(match,match_number){
@@ -48,18 +51,26 @@ function new_team(team_number, matches, name, rank) {
 				// dritte + vierte
 				$("#erste" + team_number ).append("<th " + ((key == "notes") ? "style=\"width: 250px;\"" : "") + ">" + key + "</th>");
 				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
+				if (key == "value") {
+					graph_value_array[graph_score_count] = header;
+					graph_score_count++;
+				}
 				if (key == "score") {
-					graph_array[graph_count] = header;
-					graph_count++;
+					graph_score_array[graph_value_count] = header;
+					graph_value_count++;
 				}
 			});
 		} else {
 			$("#dritte" + team_number).append("<tr id='zweite"+ team_number + match_number + "'><td>" + team_number+ "</td></tr>");
 			$.map(match, function(header,key) {
 				$("#zweite" + team_number + match_number).append("<td>" + header + "</td>");
+				if (key == "value") {
+					graph_value_array[graph_score_count] = header;
+					graph_score_count++;
+				}
 				if (key == "score") {
-					graph_array[graph_count] = header;
-					graph_count++;
+					graph_score_array[graph_value_count] = header;
+					graph_value_count++;
 				}
 
 			});
