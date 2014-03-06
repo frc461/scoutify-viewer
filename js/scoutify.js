@@ -119,7 +119,7 @@ function new_team(team_number, value, matches, name, rank) {
 		$("#block" + team_number).append("<td>" + match.blocks_scored + " / " + match.blocks_attempted + "</td>");
 		$("#value" + team_number).append("<td>" + match.value + "</td>");
 		$("#score" + team_number).append("<td>" + match.score + "</td>");
-		$("#notes" + team_number).append("<td>" + match.notes + "</td>");
+		$("#notes" + team_number).append("<td>" + match.notes.replace(/\n/g, "<br />") + "</td>");
 
 		graph_value_array.push(match.value);
 		graph_score_array.push(match.score);
